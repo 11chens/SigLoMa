@@ -40,11 +40,11 @@
             </div>
             <div class="publication-links">
               <span class="link-block">
-                <a href="#" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                <a href="./main.pdf" target="_blank" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <i class="fas fa-file-pdf"></i>
                   </span>
-                  <span>Paper (Coming Soon)</span>
+                  <span>Paper</span>
                 </a>
               </span>
               <span class="link-block">
@@ -52,7 +52,7 @@
                   <span class="icon">
                     <i class="fab fa-github"></i>
                   </span>
-                  <span>Code (Coming Soon)</span>
+                  <span>Code</span>
                 </a>
               </span>
             </div>
@@ -62,10 +62,16 @@
     </div>
   </section>
 
-  <section class="hero teaser">
-    <div class="container is-max-desktop has-text-centered">
-      <div class="notification is-warning is-light">
-        <p><strong>Work in Progress</strong> - This project is currently under development for paper submission.</p>
+  <section class="section main-demo-section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <div class="content has-text-centered">
+            <video id="main-demo" class="main-demo-video" autoplay controls muted loop preload playsinline>
+              <source src="./videos/main.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -76,7 +82,7 @@
         <div class="column is-four-fifths">
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
-            Designing an open-world quadrupedal loco-manipulation system is highly challenging. Traditional reinforcement learning (RL) frameworks utilizing exteroception often suffer from extreme sample inefficiency and massive sim-to-real gaps. Furthermore, the inherent latency of visual tracking fundamentally conflicts with the high-frequency demands of precise floating-base control. Consequently, existing systems lean heavily on expensive external motion capture and off-board computation. To eliminate these dependencies, we present a fully onboard, ego-centric vision-based pick-and-place framework. We introduce Sigma Points, a lightweight geometric representation for exteroception that guarantees high scalability and native sim-to-real alignment. To bridge the frequency divide between slow perception and fast control, we design an ego-centric Kalman Filter (KF) to provide robust, high-rate state estimation. On the learning front, we alleviate sample inefficiency via an Active Sampling Curriculum (ASC) guided by Hint Poses, and tackle the robot's structural visual blind spots using temporal encoding coupled with simulated random walk drift. Real-world experiments validate that, relying solely on a 5Hz open-vocabulary detector, our system successfully executes dynamic loco-manipulation across multiple tasks, achieving performance comparable to expert human teleoperation.
+            Designing an open-world quadrupedal loco-manipulation system is highly challenging. Traditional reinforcement learning frameworks utilizing exteroception often suffer from extreme sample inefficiency and massive sim-to-real gaps. Furthermore, the inherent latency of visual tracking fundamentally conflicts with the high-frequency demands of precise floating-base control. Consequently, existing systems lean heavily on expensive external motion capture and off-board computation. To eliminate these dependencies, we present SigLoMa, a fully onboard, ego-centric vision-based pick-and-place framework. At the core of SigLoMa is the introduction of Sigma Points, a lightweight geometric representation for exteroception that guarantees high scalability and native sim-to-real alignment. To bridge the frequency divide between slow perception and fast control, we design an ego-centric Kalman Filter to provide robust, high-rate state estimation. On the learning front, we alleviate sample inefficiency via an Active Sampling Curriculum guided by Hint Poses, and tackle the robot's structural visual blind spots using temporal encoding coupled with simulated random-walk drift. Real-world experiments validate that, relying solely on a 5Hz (200 ms latency) open-vocabulary detector, SigLoMa successfully executes dynamic loco-manipulation across multiple tasks, achieving performance comparable to expert human teleoperation.
           </div>
         </div>
       </div>
@@ -85,51 +91,70 @@
 
   <section class="section">
     <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column">
-          <h3 class="title is-4">Video Demos (Pre-release)</h3>
-        </div>
-      </div>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <div class="content has-text-centered" style="max-width: 760px; margin: 0 auto;">
-            Preview of our real-world experiments. Full results will be available upon paper publication.
+      <div class="video-demo-group">
+        <h3 class="title is-4 demo-group-title has-text-centered">Kalman Filter Task</h3>
+        <div class="columns is-centered is-variable is-6">
+          <div class="column">
+            <div class="content has-text-centered">
+              <video id="kalman-fov" class="demo-video" autoplay controls muted loop preload playsinline>
+                <source src="./videos/kalman_fov.mp4" type="video/mp4">
+              </video>
+              <p class="video-caption">First-person view <br> Green dots indicate object detection outputs (5 Hz, 200 ms latency); white circles show filtered estimates (50 Hz)</p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="content has-text-centered">
+              <video id="kalman-world" class="demo-video" autoplay controls muted loop preload playsinline>
+                <source src="./videos/kalman_world.mp4" type="video/mp4">
+              </video>
+              <p class="video-caption">Third-person view <br> Robot motion corresponding to the left video</p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="columns is-centered is-variable is-4">
-        <div class="column">
-          <div class="content has-text-centered">
-            <video id="indoor-pick" class="demo-video" autoplay controls muted preload playsinline>
-              <source src="./static/videos/indoor/pick_h264.mp4" type="video/mp4">
-            </video>
-            <p>Indoor: Pick Task</p>
+
+      <div class="video-demo-group">
+        <h3 class="title is-4 demo-group-title has-text-centered">Continuous Picking Task</h3>
+        <div class="columns is-centered is-variable is-6">
+          <div class="column">
+            <div class="content has-text-centered">
+              <video id="pick-duck" class="demo-video" autoplay controls muted loop preload playsinline>
+                <source src="./videos/pick_duck.mp4" type="video/mp4">
+              </video>
+              <p class="video-caption">Duck toy picking</p>
+            </div>
           </div>
-        </div>
-        <div class="column">
-          <div class="content has-text-centered">
-            <video id="indoor-pick-place" class="demo-video" autoplay controls muted preload playsinline>
-              <source src="./static/videos/indoor/pick_place_h264.mp4" type="video/mp4">
-            </video>
-            <p>Indoor: Pick and Place</p>
+          <div class="column">
+            <div class="content has-text-centered">
+              <video id="pick-ball" class="demo-video" autoplay controls muted loop preload playsinline>
+                <source src="./videos/pick_ball.mp4" type="video/mp4">
+              </video>
+              <p class="video-caption">Tennis ball picking</p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="columns is-centered is-variable is-4">
-        <div class="column">
-          <div class="content has-text-centered">
-            <video id="outdoor-pick" class="demo-video" autoplay controls muted preload playsinline>
-              <source src="./static/videos/outdoor/pick_h264.mp4" type="video/mp4">
-            </video>
-            <p>Outdoor: Pick Task</p>
+
+
+
+      <div class="video-demo-group">
+        <h3 class="title is-4 demo-group-title has-text-centered">Elongated Object Picking Task</h3>
+        <div class="columns is-centered is-variable is-6">
+          <div class="column">
+            <div class="content has-text-centered">
+              <video id="bottle-1" class="demo-video" autoplay controls muted loop preload playsinline>
+                <source src="./videos/bottle1.mp4" type="video/mp4">
+              </video>
+              <p class="video-caption">Litter pickup</p>
+            </div>
           </div>
-        </div>
-        <div class="column">
-          <div class="content has-text-centered">
-            <video id="outdoor-pick-place" class="demo-video" autoplay controls muted preload playsinline>
-              <source src="./static/videos/outdoor/pick_place_single_h264.mp4" type="video/mp4">
-            </video>
-            <p>Outdoor: Pick and Place</p>
+          <div class="column">
+            <div class="content has-text-centered">
+              <video id="bottle-2" class="demo-video" autoplay controls muted loop preload playsinline>
+                <source src="./videos/bottle2.mp4" type="video/mp4">
+              </video>
+              <p class="video-caption">Water bottle pickup</p>
+            </div>
           </div>
         </div>
       </div>

@@ -66,6 +66,42 @@ body {
   border-radius: 8px;
 }
 
+.main-demo-section {
+  padding-top: 1.25rem;
+  padding-bottom: 1.5rem;
+}
+
+.main-demo-video,
+.demo-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #111;
+}
+
+.main-demo-video {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.video-demo-group {
+  margin-top: 2.4rem;
+}
+
+.demo-group-title {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 1.65rem !important;
+  margin-bottom: 1.15rem;
+}
+
+.video-caption {
+  color: #4a4a4a;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  margin: 0.7rem auto 0;
+  max-width: 92%;
+}
+
 .sim-demo-video {
   width: 84%;
   max-width: 420px;
@@ -73,6 +109,22 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+  .main-demo-section {
+    padding-top: 0.5rem;
+  }
+
+  .video-demo-group {
+    margin-top: 1.8rem;
+  }
+
+  .demo-group-title {
+    font-size: 1.35rem !important;
+  }
+
+  .video-caption {
+    font-size: 0.9rem;
+  }
+
   .sim-demo-video {
     width: 92%;
     max-width: 340px;
@@ -209,6 +261,3 @@ body {
 .eql-cntrb { 
   font-size: smaller;
 }
-
-
-
